@@ -7,9 +7,9 @@ import { ShoppingCart } from "./src/page/shoppingCart";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Product /> */}
+      <Product />
       {/* <ProductDetail /> */}
-      <ShoppingCart />
+      {/* <ShoppingCart /> */}
 
       {/* <StatusBar style="auto" /> */}
     </SafeAreaView>
