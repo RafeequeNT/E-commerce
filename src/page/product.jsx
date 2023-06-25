@@ -1,16 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import { StyleSheet, View, Image, FlatList, Pressable } from "react-native";
 import products from "../data/products";
 
-export const Product = () => {
+export const Product = ({ navigation }) => {
   return (
     <View>
       <FlatList
         data={products}
         renderItem={({ item }) => (
-          <View style={{ width: "50%", padding: 1 }}>
+          <Pressable
+            style={{ width: "50%", padding: 1 }}
+            onPress={() => {
+              navigation.navigate("Product Details");
+            }}
+          >
             <Image source={{ uri: item.image }} style={styles.image} />
-          </View>
+          </Pressable>
         )}
         numColumns={2}
       />

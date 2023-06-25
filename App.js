@@ -1,18 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView, View } from "react-native";
+import { Navigation } from "./src/navigation";
 import { Product } from "./src/page/product";
 import { ProductDetail } from "./src/page/productDetail";
 import { ShoppingCart } from "./src/page/shoppingCart";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Product />
-      {/* <ProductDetail /> */}
-      {/* <ShoppingCart /> */}
-
-      {/* <StatusBar style="auto" /> */}
-    </SafeAreaView>
+    <>
+      <Navigation />
+      <StatusBar style="auto" />
+    </>
   );
 }
 
