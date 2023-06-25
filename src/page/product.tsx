@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, FlatList } from "react-native";
-import products from "../products";
+import products from "../data/products";
 
 export const Product = () => {
   return (
