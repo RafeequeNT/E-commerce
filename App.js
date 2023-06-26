@@ -1,16 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, SafeAreaView, View } from "react-native";
 import { Navigation } from "./src/navigation";
-import { Product } from "./src/page/product";
-import { ProductDetail } from "./src/page/productDetail";
-import { ShoppingCart } from "./src/page/shoppingCart";
+
+import { Provider } from "react-redux";
+import { store } from "./src/store";
 
 export default function App() {
   return (
-    <>
+    <Provider store={store}>
       <Navigation />
-      <StatusBar style="auto" />
-    </>
+    </Provider>
   );
 }
 

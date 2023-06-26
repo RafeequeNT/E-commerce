@@ -11,13 +11,11 @@ import {
 } from "react-native";
 import products from "../data/products";
 import { Ionicons } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
 
 export const ProductDetail = () => {
-  const product = products[0];
-
-  console.log("product", product.image);
-
   const { width } = useWindowDimensions();
+  const product = useSelector((state) => state.products.selectedProduct);
 
   return (
     <View>
