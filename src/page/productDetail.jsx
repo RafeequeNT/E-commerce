@@ -9,19 +9,25 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import products from "../data/products";
+// import products from "../data/products";
 import { Ionicons } from "@expo/vector-icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartSlice } from "../store/cartSlice";
 
 export const ProductDetail = () => {
   const { width } = useWindowDimensions();
   const product = useSelector((state) => state.products.selectedProduct);
 
+  const dispatch = useDispatch();
+  const addToCart = () => {
+    console.log("click add");
+    dispatch(cartSlice.actions.addCartItem({ product }));
+  };
   return (
     <View>
       <ScrollView>
         <FlatList
-          data={product.images}
+          data={product?.images}
           renderItem={({ item }) => (
             <Image source={{ uri: item }} style={{ aspectRatio: 1, width }} />
           )}
@@ -40,15 +46,12 @@ export const ProductDetail = () => {
           <Text style={styles.description}>{product.description}</Text>
         </View>
       </ScrollView>
-      <Pressable
-        style={styles.button}
-        onPress={() => console.log("click add to cart")}
-      >
+      <Pressable style={styles.button} onPress={addToCart}>
         <Text style={styles.buttonText}> Add to Cart</Text>
       </Pressable>
-      <Pressable style={styles.icon}>
+      {/* <Pressable style={styles.icon}>
         <Ionicons name="close" size={24} color="white" />
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 };
